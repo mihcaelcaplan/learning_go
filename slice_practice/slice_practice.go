@@ -86,6 +86,16 @@ func subslicing() {
 	println("after appending to the child, it changes, but mother stays the same")
 	fmt.Printf("mother: %s\n", mother)
 	fmt.Printf("child: %s\n", child2)
+
+	// to detach a subslice so that changes to the mother don't affect it, we will probably have to copy it
+	// let's try to find the append function and just do what it does as a best practice
+	child3 := make([]string, 2)
+	copy(child3, mother[0:2])
+	println("after copying first 2 mother elements, child2 is unlinked")
+	mother[1] = "god"
+	fmt.Printf("mother: %s\n", mother)
+	fmt.Printf("child: %s\n", child3)
+
 }
 
 func main() {
