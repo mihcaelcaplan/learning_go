@@ -7,29 +7,36 @@ import (
 	"time"
 )
 
+// type struct
 type fucker struct {
 	name     string
 	birthday time.Time
 	secret   uint8
 }
 
+// method that doesn't take any info
 func (f fucker) fuck() {
 	println("fuck you!!!")
 }
 
+// method that changes the values
 func (f *fucker) birth(name string, time time.Time) {
 	f.name = name
 	f.birthday = time
 }
 
+// method that returns a value
 func (f fucker) tellmeasecret() uint8 {
 	fmt.Printf("my secret is 0x%02X\n", f.secret)
 	return f.secret
 }
 
+// method that writes a secret
 func (f *fucker) traumatize(secret uint8) {
 	f.secret = secret
 }
+
+// main
 func main() {
 
 	var you fucker
